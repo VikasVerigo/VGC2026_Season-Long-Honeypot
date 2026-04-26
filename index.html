@@ -1629,31 +1629,31 @@ const playerPhotos = {};
 
 // holeScores: array of arrays — one per round, 18 holes each. Empty array = absent.
 const players = [
-  {name:"Claude Nobauer",       hcp:3,  entryPaid:true,  entryDate:"Apr 24", scores:[33,31], gross:[78,80], holeScores:[[4,5,3,4,4,6,4,4,4,5,4,5,5,4,4,3,4,6],[4,4,5,4,5,6,4,3,4,6,4,4,5,5,5,4,4,4]]},
-  {name:"Mike Marino",          hcp:4,  entryPaid:true,  entryDate:"Apr 24", scores:[36,0],  gross:[76,0],  holeScores:[[5,4,3,4,4,5,3,4,5,4,4,3,5,4,5,5,4,5],[]]},
-  {name:"Anthony Mauro",        hcp:6,  entryPaid:true,  entryDate:"Apr 22", scores:[34,0],  gross:[80,0],  holeScores:[[5,5,3,4,5,5,4,4,4,7,4,2,5,5,4,4,5,5],[]]},
-  {name:"Peter Bogdanich",      hcp:6,  entryPaid:true,  entryDate:"Apr 26", scores:[0,0],   gross:[0,0],   holeScores:[[],[]]},
-  {name:"Mark Halverson",       hcp:10, entryPaid:true,  entryDate:"Apr 25", scores:[28,0],  gross:[90,0],  holeScores:[[5,4,4,5,5,6,4,5,5,6,4,4,6,5,5,6,6,5],[]]},
-  {name:"Vikas Patel",          hcp:10, entryPaid:true,  entryDate:"Apr 22", scores:[23,37], gross:[96,81], holeScores:[[5,6,4,5,5,7,5,5,5,6,5,6,6,5,5,4,5,7],[5,5,3,5,5,5,3,5,3,6,4,4,5,5,5,3,4,6]]},
-  {name:"Karim Esmail",         hcp:12, entryPaid:true,  entryDate:"Apr 24", scores:[23,32], gross:[98,88], holeScores:[[4,5,4,5,6,6,5,6,7,6,5,4,6,6,6,5,5,7],[6,4,5,5,5,7,4,5,4,6,5,3,5,5,4,5,5,5]]},
-  {name:"David Aikens",         hcp:12, entryPaid:true,  entryDate:"Apr 22", scores:[22,27], gross:[98,93], holeScores:[[6,6,4,5,6,6,5,5,5,8,5,3,6,6,5,5,6,6],[6,6,4,5,5,6,6,4,6,6,5,4,5,4,5,6,5,5]]},
-  {name:"Robert Lee",           hcp:13, entryPaid:true,  entryDate:"Apr 26", scores:[28,35], gross:[93,86], holeScores:[[5,5,4,5,5,6,4,5,5,6,6,4,6,5,6,5,6,5],[4,5,4,5,4,6,4,5,5,5,4,5,5,4,5,5,5,6]]},
-  {name:"Raj Kalhon",           hcp:14, entryPaid:true,  entryDate:"Apr 24", scores:[22,0],  gross:[100,0], holeScores:[[6,6,4,5,6,6,4,7,5,6,7,4,5,5,5,5,7,7],[]]},
-  {name:"Lyle Pidzarko",        hcp:16, entryPaid:true,  entryDate:"Apr 26", scores:[19,33], gross:[105,91],holeScores:[[6,6,5,5,6,6,5,6,6,7,6,5,6,6,6,6,6,6],[5,5,5,5,5,5,5,5,5,7,4,4,5,7,4,5,5,5]]},
+  {name:"Claude Nobauer",       hcp:3,  entryPaid:true,  entryDate:"Apr 24", weekHcp:[null,3],  scores:[0,31],  gross:[0,80],  holeScores:[[],[4,4,5,4,5,6,4,3,4,6,4,4,5,5,5,4,4,4]]},
+  {name:"Mike Marino",          hcp:4,  entryPaid:true,  entryDate:"Apr 24", weekHcp:[null,null], scores:[0,0],  gross:[0,0],   holeScores:[[],[]]},
+  {name:"Anthony Mauro",        hcp:6,  entryPaid:true,  entryDate:"Apr 22", weekHcp:[5,null],  scores:[29,0],  gross:[85,0],  holeScores:[[4,5,6,4,6,6,3,5,4,5,4,4,6,4,6,4,4,5],[]]},
+  {name:"Peter Bogdanich",      hcp:6,  entryPaid:true,  entryDate:"Apr 26", weekHcp:[null,null], scores:[0,0],  gross:[0,0],   holeScores:[[],[]]},
+  {name:"Mark Halverson",       hcp:10, entryPaid:true,  entryDate:"Apr 25", weekHcp:[null,null], scores:[0,0],  gross:[0,0],   holeScores:[[],[]]},
+  {name:"Vikas Patel",          hcp:10, entryPaid:true,  entryDate:"Apr 22", weekHcp:[10,10],   scores:[33,37], gross:[85,81], holeScores:[[5,5,5,5,5,6,4,5,4,5,6,3,5,4,4,5,4,5],[5,5,3,5,5,5,3,5,3,6,4,4,5,5,5,3,4,6]]},
+  {name:"Karim Esmail",         hcp:12, entryPaid:true,  entryDate:"Apr 24", weekHcp:[10,10],   scores:[27,30], gross:[92,88], holeScores:[[4,5,3,5,4,6,4,6,6,6,4,6,6,6,6,5,5,5],[6,4,5,5,5,7,4,5,4,6,5,3,5,5,4,5,5,5]]},
+  {name:"David Akins",          hcp:12, entryPaid:true,  entryDate:"Apr 22", weekHcp:[null,11],  scores:[0,26],  gross:[0,93],  holeScores:[[],[6,6,4,5,5,6,6,4,6,6,5,4,5,4,5,6,5,5]]},
+  {name:"Robert Lee",           hcp:13, entryPaid:true,  entryDate:"Apr 26", weekHcp:[12,12],   scores:[32,34], gross:[88,86], holeScores:[[4,4,3,5,4,6,4,5,5,8,6,3,6,5,5,5,5,5],[4,5,4,5,4,6,4,5,5,5,4,5,5,4,5,5,5,6]]},
+  {name:"Raj Kalhon",           hcp:14, entryPaid:true,  entryDate:"Apr 24", weekHcp:[null,null], scores:[0,0],  gross:[0,0],   holeScores:[[],[]]},
+  {name:"Lyle Pidzarko",        hcp:16, entryPaid:true,  entryDate:"Apr 26", weekHcp:[null,15],  scores:[0,33],  gross:[0,91],  holeScores:[[],[5,5,5,5,5,5,5,5,5,7,4,4,5,7,4,5,5,5]]},
 ];
 
 // Previous week rankings for movement arrows
 const prevRankings = {
   "Mike Marino": 7, "Anthony Mauro": 12, "Vikas Patel": 13,
   "Robert Lee": 15, "Claude Nobauer": 16, "Mark Halverson": 27,
-  "Raj Kalhon": 29, "David Aikens": 31, "Karim Esmail": 32,
+  "Raj Kalhon": 29, "David Akins": 31, "Karim Esmail": 32,
   "Lyle Pidzarko": 37,
 };
 
 // Gallery photos — add objects {src, caption} to populate gallery
 const galleryPhotos = [];
 
-const roundDates = ["Apr 15", "Apr 22"];
+const roundDates = ["Apr 8", "Apr 22"];
 const BEST_N = 10;
 const TOTAL_ROUNDS = 18;
 
