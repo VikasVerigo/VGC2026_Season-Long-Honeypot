@@ -1515,15 +1515,11 @@
                 <th style="text-align:left; padding-left:1.5rem">Player</th>
                 <th style="text-align:center">Entry Paid</th>
                 <th style="text-align:center">Entry Date</th>
-                <th style="text-align:center">Eligible Rounds</th>
               </tr>
             </thead>
             <tbody id="entry-body"></tbody>
           </table>
         </div>
-        <p style="text-align:center; margin-top:1.5rem; font-style:italic; color:rgba(245,240,232,0.35); font-size:0.85rem">
-          Only rounds played on or after the Entry Date count towards standings. Update <code style="font-size:0.8rem; color:rgba(201,160,32,0.8)">entryPaid</code> and <code style="font-size:0.8rem; color:rgba(201,160,32,0.8)">entryDate</code> in the players array.
-        </p>
       </div>
 
       <!-- Weekly Results Tab -->
@@ -1660,6 +1656,12 @@ const galleryPhotos = [];
 const roundDates = ["Apr 15", "Apr 22"];
 const BEST_N = 10;
 const TOTAL_ROUNDS = 18;
+
+// ── COURSE DATA (VGC) ──
+// Stroke index for holes 1–18
+const holeStrokeIndex = [7,13,17,3,9,1,11,5,15,8,12,18,2,16,4,10,14,6];
+// Par for holes 1–18
+const holePar = [4,4,3,4,4,5,3,4,4,5,4,3,5,4,4,4,4,4];
 // Next round date (Tuesday night = next Wednesday morning)
 const nextRoundDates = [
   "2026-04-29T07:00:00",
@@ -1752,7 +1754,7 @@ function renderStandingsHeader() {
     { key:'hcp',    label:'Current HCP' },
     ...[...roundDates].slice().reverse().map(d => ({ key: d, label: d })),
     { key:'best10', label:'Top 10' },
-    { key:'rounds', label:'Rounds' },
+    { key:'rounds', label:'Eligible Rounds' },
   ];
   tr.innerHTML = cols.map(c => {
     const isActive = standingsSortCol === c.key;
@@ -2264,10 +2266,6 @@ function renderEntry() {
       ? `<span style="color:#2ecc71;font-weight:700;font-family:'Montserrat',sans-serif;font-size:0.85rem">✓ Yes</span>`
       : `<span style="color:rgba(245,240,232,0.3);font-family:'Montserrat',sans-serif;font-size:0.85rem">No</span>`;
     const dateDisplay = p.entryDate || '—';
-    // Eligible rounds = rounds played on/after entryDate
-    const eligibleCount = p.entryPaid && p.entryDate
-      ? p.scores.filter((s, ri) => s > 0 && roundDates[ri] >= p.entryDate).length
-      : (p.entryPaid ? p.scores.filter(s => s > 0).length : '—');
     const rowNum = i + 1;
     const bg = i % 2 === 0 ? 'rgba(255,255,255,0.02)' : 'transparent';
     return `<tr style="background:${bg}">
@@ -2275,7 +2273,6 @@ function renderEntry() {
       <td><div class="player-cell">${avatarHtml(p.name)}<span style="color:var(--vgc-cream);font-family:'Crimson Pro',Georgia,serif;font-size:1rem">${p.name}</span></div></td>
       <td style="text-align:center">${paidBadge}</td>
       <td style="text-align:center;font-family:'Montserrat',sans-serif;font-size:0.85rem;color:rgba(245,240,232,0.7)">${dateDisplay}</td>
-      <td style="text-align:center;font-family:'Montserrat',sans-serif;font-size:0.85rem;color:rgba(245,240,232,0.7)">${eligibleCount}</td>
     </tr>`;
   }).join('');
 }
